@@ -1,6 +1,6 @@
 # ![](https://gravatar.com/avatar/11d3bc4c3163e3d238d558d5c9d98efe?s=64) aptible/alpine
 
-[![Docker Repository on Quay.io](https://quay.io/repository/aptible/alpine/status)](https://quay.io/repository/aptible/alpine)
+[![Docker Repository on Quay.io](https://quay.io/repository/aptible/alpine/status)](https://quay.io/repository/aptible/alpine) 
 
 Alpine base image
 
