@@ -1,4 +1,4 @@
-FROM gliderlabs/alpine:3.1
+FROM gliderlabs/alpine:3.2
 RUN apk-install bash curl \
     && curl -sL https://github.com/sstephenson/bats/archive/master.zip > /tmp/bats.zip \
     && cd /tmp \
