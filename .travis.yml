@@ -5,8 +5,6 @@ services:
   - docker
 
 env:
-  global:
-    - DOCKER_CONFIG=./.docker
   matrix:
     - TAG=3.2
     - TAG=3.3
@@ -15,9 +13,10 @@ script:
   - make build
   - make test
 
-
 before_deploy:
-  - openssl aes-256-cbc -K "$DOCKER_CONF_key" -iv "$DOCKER_CONF_iv" -in .docker/config.json.enc -out .docker/config.json -d
+  - export DOCKER_CONFIG="${HOME}/.docker"
+  - mkdir -p "$DOCKER_CONFIG"
+  - openssl aes-256-cbc -K "$DOCKER_CONF_key" -iv "$DOCKER_CONF_iv" -in .docker/config.json.enc -out "${DOCKER_CONFIG}/config.json" -d
 
 deploy:
   provider: script
@@ -25,4 +24,3 @@ deploy:
   script: make push
   on:
     branch: master
-
