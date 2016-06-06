@@ -8,6 +8,7 @@ env:
   matrix:
     - TAG=3.2
     - TAG=3.3
+    - TAG=3.4
 
 script:
   - make build
