@@ -9,3 +9,6 @@ RUN apk-install bash curl \
     && ln -sf /usr/local/libexec/bats /usr/local/bin/bats \
     && rm -rf /tmp/bats* \
     && apk del curl
+
+RUN apk upgrade --update && rm -rf /var/cache/apk/*
+ONBUILD RUN apk upgrade --update && rm -rf /var/cache/apk/*
