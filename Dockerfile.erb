@@ -1,4 +1,6 @@
-FROM gliderlabs/alpine:<%= ENV.fetch('TAG') %>
+FROM alpine:<%= ENV.fetch('TAG') %>
+
+COPY apk-install /usr/sbin/
 
 RUN apk-install bash curl \
     && curl -sL https://github.com/sstephenson/bats/archive/master.zip > /tmp/bats.zip \
