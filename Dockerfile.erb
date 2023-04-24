@@ -3,6 +3,7 @@ FROM cgr.dev/chainguard/wolfi-base:<%= ENV.fetch('TAG') %>
 RUN apk add --update "$@" && rm -rf /var/cache/apk/*
 
 RUN apk add bash curl zip
+RUN mkdir -p /tmp
 RUN curl -sL https://github.com/sstephenson/bats/archive/master.zip > /tmp/bats.zip
 RUN cd /tmp
 RUN unzip -q bats.zip
