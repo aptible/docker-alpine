@@ -1,4 +1,4 @@
-FROM alpine:<%= ENV.fetch('TAG') %>
+FROM cgr.dev/chainguard/wolfi-base:<%= ENV.fetch('TAG') %>
 
 COPY apk-install /usr/sbin/
 
