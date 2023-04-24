@@ -2,7 +2,7 @@ FROM cgr.dev/chainguard/wolfi-base:<%= ENV.fetch('TAG') %>
 
 COPY apk-install /usr/sbin/
 
-RUN apk-install bash curl zip\
+RUN apk add bash curl zip\
     && curl -sL https://github.com/sstephenson/bats/archive/master.zip > /tmp/bats.zip \
     && cd /tmp \
     && unzip -q bats.zip \
