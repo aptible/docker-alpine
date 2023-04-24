@@ -1,17 +1,13 @@
 FROM cgr.dev/chainguard/wolfi-base:<%= ENV.fetch('TAG') %>
 
 COPY apk-install /usr/sbin/
-RUN chmod +x /usr/sbin/apk-install
 
-RUN apk-install bash curl zip\
-    && curl -sL https://github.com/sstephenson/bats/archive/master.zip > /tmp/bats.zip \
-    && cd /tmp \
-    && unzip -q bats.zip \
-    && ./bats-master/install.sh /usr/local \
-    # /usr/local/bin/bats should be a symlink, so make it happen.
-    && ln -sf /usr/local/libexec/bats /usr/local/bin/bats \
-    && rm -rf /tmp/bats* \
-    && apk del curl zip
+RUN apk-install bash git\
+    && git clone https://github.com/bats-core/bats-core.git \
+    && cd bats-core \
+    && ./install.sh /usr/local \
+    && cd .. \ 
+    && rm -rf bats-core
 
 RUN apk upgrade --update && rm -rf /var/cache/apk/*
 ONBUILD RUN apk upgrade --update && rm -rf /var/cache/apk/*
