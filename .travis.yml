@@ -17,6 +17,12 @@ env:
     - TAG=3.10
     - TAG=3.11
     - TAG=3.12
+    - TAG=3.13
+    - TAG=3.14
+    - TAG=3.15
+    - TAG=3.16
+    - TAG=3.17
+    - TAG=3.18
 
 script:
   - make build
