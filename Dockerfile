@@ -1,5 +1,5 @@
 ARG TAG
-FROM alpine:${TAG}
+FROM --platform=linux/x86_64 alpine:${TAG}
 
 COPY apk-install /usr/sbin/
 
