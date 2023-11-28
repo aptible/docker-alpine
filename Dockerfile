@@ -1,4 +1,5 @@
-FROM alpine:<%= ENV.fetch('TAG') %>
+ARG TAG
+FROM --platform=linux/x86_64 alpine:${TAG}
 
 COPY apk-install /usr/sbin/
 
